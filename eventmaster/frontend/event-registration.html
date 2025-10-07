@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регистрация на мероприятие</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style1.css" rel="stylesheet">
+  <link href="css/event-registration.css" rel="stylesheet">
+  <link href="css/kontur-restore.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    
+    .form-control {
+      color: #0d1b26 !important;
+      background-color: #ffffff !important;
+      border: 1px solid #000000 !important;
+      box-shadow: none !important;
+    }
+    .form-control:focus {
+      border-color: #000000 !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+    textarea.form-control, select.form-control {
+      color: #0d1b26 !important;
+      background-color: #fff !important;
+      border: 1px solid #000 !important;
+    }
+    
+    .card, .card .card-body {
+      background-color: #0d1b26 !important;
+      color: #ffffff !important;
+      border-color: rgba(255,255,255,0.06) !important;
+    }
+    
+    #registrationForm, #registrationForm .row, #registrationForm .g-3 {
+      background-color: transparent !important;
+    }
+    
+    #registrationForm .mb-3, #registrationForm .form-label, #registrationForm .form-text, #registrationForm .btn {
+      color: #ffffff !important;
+    }
+    #registrationForm .mb-3 {
+      background-color: #0d1b26 !important; /* dark panel */
+      padding: 0.85rem !important;
+      border-radius: 0.35rem !important;
+      border: none !important;
+    }
+    
+    #registrationForm .form-control {
+      background-color: transparent !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255,255,255,0.15) !important;
+      box-shadow: none !important;
+    }
+    #registrationForm .form-control::placeholder { color: rgba(255,255,255,0.65) !important; }
+    #registrationForm .form-control:focus {
+      border-color: rgba(255,255,255,0.4) !important;
+      box-shadow: 0 0 0 0.15rem rgba(13,27,38,0.35) !important;
+    }
+    
+    #registrationForm .text-danger { color: #e55353 !important; }
+
+    
+    .card, .card .card-body {
+      transition: none !important;
+      transform: none !important;
+    }
+    .card:hover, .card:focus {
+      transform: none !important;
+    }
+
+    
+    #registrationForm {
+      background-color: #0d1b26 !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      padding: 1rem !important;
+      border-radius: 0.5rem !important;
+      background-clip: padding-box !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container">
+        <a class="navbar-brand text-light" href="index.html">Контур.Ивент</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 id="eventTitle">Название мероприятия</h2>
+            <p id="eventDateTime" class="text-muted mb-1"></p>
+            <p id="eventLocation" class="text-muted mb-3"></p>
+            <p id="eventDescription" class="card-text"></p>
+          </div>
+        </div>
+
+        <form id="registrationForm">
+          <div class="row g-3">
+            <div class="mb-3">
+              <label class="form-label">ФИО<span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="fullName" value="" required>
+              <div class="form-text">Например: Иванов Иван Иванович</div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">Академическая группа<span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="group" value="" required>
+              <div class="form-text">Например: РИ-240900</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">
+              Зарегистрироваться
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark py-3 mt-auto">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+  <span class="text-light fw-semibold">Nexa</span>
+        <a href="https://github.com/desper1do/nexa-eventmaster" target="_blank" class="text-light fs-4">
+            <i class="bi bi-github"></i>
+        </a>
+        </div>
+    </div>
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/event-registration.js"></script>
+</body>
+</html>

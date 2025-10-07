@@ -1,0 +1,93 @@
+/* inherit global theme */
+body { color: inherit; font-family: inherit; }
+
+/* Force readable text color for main content on create-event page */
+.event-form-container, .event-form-container * {
+  color: #111 !important;
+}
+
+  
+  .event-form-container { background: white; border-radius: 15px; box-shadow: 0 8px 24px rgba(2,6,23,0.12); color: #111; }
+  
+  .form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+  }
+
+  /* required star next to labels: no gap between label text and star */
+  label .text-danger {
+    margin-left: 0; /* remove gap so '*' sits immediately after the label */
+    padding-left: 0;
+    color: #dc3545 !important;
+    line-height: 1; /* keep vertically aligned */
+    font-size: 1em;
+  }
+
+  /* date/time inputs layout */
+  .event-form-container input[type="date"],
+  .event-form-container input[type="time"] {
+    max-width: 220px;
+  }
+
+  /* description counter when at limit */
+  #descCounter.limit-reached {
+    color: #dc3545 !important;
+    font-weight: 600;
+  }
+  
+  .form-control:focus {
+    border-color: #090a0a;
+    box-shadow: 0 0 0 0.25rem rgba(34, 36, 39, 0.25);
+  }
+  
+  textarea.form-control {
+    min-height: 120px;
+  }
+
+.btn-dark.rounded-pill {
+    background-color: #dc3545 !important;
+    color: white !important;
+    border: none;
+    min-width: 250px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-dark.rounded-pill:hover {
+    background-color: #a32d2d !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-dark.rounded-pill:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  
+  @media (max-width: 768px) {
+    .btn-dark.rounded-pill {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .event-form-container {
+      padding: 2rem !important;
+    }
+    
+    .btn-lg {
+      width: 100%;
+      padding: 12px !important;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .event-form-container {
+      padding: 1.5rem !important;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+    }
+  }

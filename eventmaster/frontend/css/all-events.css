@@ -1,0 +1,94 @@
+/* inherit global theme */
+body { color: inherit; font-family: inherit; }
+
+.card { border-radius: 12px; transition: box-shadow 0.28s ease; height: 100%; }
+
+.card:hover {
+  transform: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+.card-text { line-height: 1.6; }
+
+.card-footer { border-top: 1px solid rgba(0,0,0,0.05); }
+
+.btn-outline-primary { border-radius: 50px !important; border: 2px solid var(--kontur-accent) !important; color: var(--kontur-accent) !important; padding: 0.5rem 1.5rem; font-weight: 600; }
+.btn-outline-primary:hover { background-color: var(--kontur-accent) !important; color: white !important; }
+
+.text-muted {
+  color: #7f8c8d !important;
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+  }
+}
+
+.modal-content {
+  border-radius: 12px;
+}
+
+.modal-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+  border-top: 1px solid #dee2e6;
+}
+.modal-content { background: linear-gradient(180deg,#fff,#fbf7f2) !important; border-radius: 12px; box-shadow: 0 8px 24px rgba(2,6,23,0.12); }
+.modal-header { padding: 1.25rem; }
+
+.modal-body { padding: 1.5rem; line-height: 1.6; }
+.modal-footer { border-top: 1px solid rgba(0,0,0,0.05); padding: 1rem 1.25rem; }
+
+.modal-footer .btn { border-radius: 10px !important; padding: 0.5rem 1rem; font-weight: 600; min-width: 100px; }
+/* keep modal footer button defaults from global theme */
+
+.btn-close {
+  filter: invert(0.3);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out, opacity 0.3s ease;
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.modal.show .modal-dialog {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 576px) {
+  .modal-content {
+    margin: 0.5rem;
+  }
+  
+  .modal-header, 
+  .modal-body, 
+  .modal-footer {
+    padding: 1rem;
+  }
+  
+  .modal-footer .btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    min-width: 80px;
+  }
+}

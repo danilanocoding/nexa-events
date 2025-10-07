@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Все мероприятия</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style1.css" rel="stylesheet">
+  <link href="css/all-events.css" rel="stylesheet">
+  <link href="css/kontur-restore.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    .register-btn {
+      background-color: #28a745 !important;
+      border-color: #28a745 !important;
+      color: #fff !important;
+      padding: 0.6rem 1.25rem !important;
+      font-size: 1.05rem !important;
+      border-radius: 50px !important;
+      min-width: 160px;
+    }
+
+    @media (max-width: 576px) {
+      .register-btn { width: 100% !important; min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Контур.Ивент</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h1 class="mb-4 text-center">Доступные мероприятия</h1>
+    <div class="row mb-4">
+      <div class="col-md-6 mx-auto">
+        <div class="search-container">
+          <input type="text" id="searchEvents" class="form-control" placeholder="Поиск мероприятий...">
+        </div>
+      </div>
+    </div>
+    <div id="eventsList" class="row row-cols-1 row-cols-md-2 g-4"></div>
+  </main>
+
+  <div class="modal fade" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Регистрация</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Вы хотите записаться на это мероприятие?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Нет</button>
+          <button type="button" class="btn btn-primary" id="confirmYesBtn">Да</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark py-3 mt-auto">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+  <span class="text-light fw-semibold">Nexa</span>
+        <a href="https://github.com/desper1do/nexa-eventmaster" target="_blank" class="text-light fs-4">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const eventsList = document.getElementById('eventsList');
+    const confirmYesBtn = document.getElementById('confirmYesBtn');
+    const searchInput = document.getElementById('searchEvents');
+    let selectedEventCode = null;
+    let allEvents = [];
+
+    // Fetch published events once and keep in memory for client-side search
+    fetch('http://localhost:5000/api/events/published')
+      .then(res => res.json())
+      .then(data => {
+        allEvents = data || [];
+        if (!allEvents.length) {
+          eventsList.innerHTML = '<p class="text-center">Пока нет доступных мероприятий.</p>';
+          return;
+        }
+        displayEvents(allEvents);
+
+        // live search
+        if (searchInput) {
+          searchInput.addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const filtered = allEvents.filter(ev => ev.name.toLowerCase().includes(term));
+            displayEvents(filtered);
+          });
+        }
+      })
+      .catch(() => {
+        eventsList.innerHTML = '<p class="text-danger text-center">Ошибка загрузки мероприятий</p>';
+      });
+
+    function displayEvents(events) {
+      eventsList.innerHTML = '';
+      if (!events || events.length === 0) {
+        eventsList.innerHTML = '<p class="text-center">Мероприятий не найдено.</p>';
+        return;
+      }
+
+      events.forEach(event => {
+        const col = document.createElement('div');
+        col.className = 'col';
+        col.innerHTML = `
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h2 class="card-title mb-2">${event.name}</h2>
+              <p class="text-muted mb-0">🗓️ ${formatDate(event.event_date)}</p>
+              <p class="text-muted mb-2">📍 ${event.location || 'Не указано'}</p>
+              <div class="card-text">${formatDescription(event.description)}</div>
+            </div>
+            <div class="card-footer text-end py-3">
+              <button class="btn btn-success btn-lg register-btn" data-code="${event.event_code}" data-bs-toggle="modal" data-bs-target="#confirmModal">Записаться</button>
+            </div>
+          </div>
+        `;
+        eventsList.appendChild(col);
+      });
+
+      document.querySelectorAll('.register-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          selectedEventCode = this.getAttribute('data-code');
+        });
+      });
+    }
+
+    confirmYesBtn.addEventListener('click', () => {
+      if (selectedEventCode) {
+        window.location.href = `event-registration.html?event=${selectedEventCode}`;
+      }
+    });
+
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleString('ru-RU', {
+        day: 'numeric', month: 'long', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      }).replace(',', ' в');
+    }
+
+    function formatDescription(text) {
+      if (!text) return 'Без описания';
+      return text
+        .split(/\n\s*\n/)
+        .map(p => `<p>${p.trim()}</p>`)
+        .join('');
+    }
+  </script>
+</body>
+</html>

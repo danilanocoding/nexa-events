@@ -1,0 +1,158 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  main {
+    flex: 1;
+    padding-bottom: 20px;
+  }
+  
+  .navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    font-size: 16px;
+  }
+  
+  .btn {
+    min-height: 44px;
+  }
+  
+  #scanner-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table-responsive {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .table th {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  
+  .table a[href*="vk.com"] {
+    color: #2787F5;
+    text-decoration: none;
+  }
+  
+  #qrcode {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .modal-dialog {
+        margin: 1rem auto;
+        max-width: 95%;
+    }
+    
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    #qr-video {
+        max-height: 50vh;
+    }
+    
+    .table-responsive {
+        font-size: 0.8rem;
+    }
+    
+    .d-md-flex {
+      flex-direction: column;
+    }
+    
+    .me-md-2 {
+      margin-right: 0 !important;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    background: #17a2b8;
+    color: white;
+    border-radius: 5px;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  .badge.bg-success {
+    background-color: #28a745 !important;
+  }
+  
+  .badge.bg-secondary {
+    background-color: #6c757d !important;
+  }
+
+  #qrcode-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    height: 100%;
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+#qrcode {
+    display: block;
+    margin: 0 auto;
+}
+
+.card-text p {
+  margin-bottom: 0.5rem;
+}
+
+.card-text p:last-child {
+  margin-bottom: 0;
+}
+

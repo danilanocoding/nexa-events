@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Создать мероприятие</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style1.css" rel="stylesheet">
+  <link href="css/create-event.css" rel="stylesheet">
+  <link href="css/kontur-restore.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    .event-form-container {
+      background: #0f2730 !important;
+      color: #f4f7f8 !important;
+      border-radius: 8px;
+    }
+    .event-form-container, .event-form-container * {
+      color: #f4f7f8 !important;
+    }
+    .event-form-container .form-control {
+      background: transparent !important;
+      color: #f4f7f8 !important;
+      border: 1px solid rgba(244,247,248,0.18) !important;
+    }
+    .event-form-container .form-control::placeholder {
+      color: rgba(244,247,248,0.6) !important;
+      opacity: 1 !important;
+    }
+    .event-form-container .form-control:focus {
+      border-color: rgba(244,247,248,0.9) !important;
+      box-shadow: none !important;
+      outline: 0 !important;
+    }
+    .event-form-container .form-text, .event-form-container .form-label {
+      color: rgba(244,247,248,0.9) !important;
+    }
+    .event-form-container .btn-dark, .event-form-container .btn-primary {
+      color: #fff !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container">
+        <a class="navbar-brand text-white" href="index.html">Контур.Ивент</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="event-form-container p-4 p-md-5">
+          <h1 class="text-center mb-4">Создание мероприятия</h1>
+          <form id="createEventForm">
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Название мероприятия<span class="text-danger">*</span></label>
+              <input type="text" class="form-control form-control-lg" id="eventName" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Дата и время<span class="text-danger">*</span></label>
+              <div class="d-flex gap-2 align-items-center">
+                <input type="date" class="form-control form-control-lg" id="eventDate" required>
+                <input type="time" class="form-control form-control-lg" id="eventTime" required>
+              </div>
+              <div class="form-text mt-1">Выберите дату и время.</div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Место проведения<span class="text-danger">*</span></label>
+              <input type="text" class="form-control form-control-lg" id="eventLocation" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Описание</label>
+              <textarea class="form-control" id="eventDescription" rows="6" maxlength="1000"></textarea>
+              <div class="d-flex justify-content-between mt-1">
+                <div class="form-text">Описание мероприятия (необязательно)</div>
+                <div class="form-text" id="descCounter">0 / 1000</div>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-dark btn-lg px-5 py-3 rounded-pill">
+                Создать мероприятие
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark py-3 mt-auto">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+  <span class="text-light fw-semibold">Nexa</span>
+        <a href="https://github.com/desper1do/nexa-eventmaster" target="_blank" class="text-light fs-4">
+            <i class="bi bi-github"></i>
+        </a>
+        </div>
+    </div>
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>

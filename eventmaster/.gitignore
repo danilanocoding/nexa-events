@@ -1,0 +1,26 @@
+﻿# Bytecode and caches
+__pycache__/
+*.py[cod]
+
+# virtual envs
+venv/
+.env
+
+# Database and backups
+backend/database.db
+frontend/backup/
+frontend-old/
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Build artifacts
+dist/
+build/

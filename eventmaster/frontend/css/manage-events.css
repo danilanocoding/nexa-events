@@ -1,0 +1,80 @@
+/* page uses global theme */
+body { color: inherit; font-family: inherit; }
+
+.card { border-radius: 12px; transition: box-shadow 0.28s ease; height: 100%; }
+
+.card:hover {
+  transform: none;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.card-body { padding: 1.5rem; }
+
+.card-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+
+.card-text { line-height: 1.6; }
+
+.card-footer { padding: 1rem 1.5rem; }
+
+.btn { border-radius: 10px !important; padding: 0.5rem 1.25rem; font-weight: 600; min-width: 100px; }
+
+
+.badge {
+  border-radius: 50px;
+  padding: 0.5em 0.8em;
+  font-weight: 500;
+}
+
+
+.input-group { max-width: 400px; }
+
+.modal-content {
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.modal-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+  border-top: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+  .card-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .card-footer > div {
+    width: 100%;
+    justify-content: center !important;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1.25rem;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Search box styling */
+.search-box .form-control {
+  border-radius: 999px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.search-box .input-group-text {
+  border-radius: 50px 0 0 50px;
+  border-right: 0;
+  background: white;
+}

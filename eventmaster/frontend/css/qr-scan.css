@@ -1,0 +1,118 @@
+/* inherit global theme */
+body { color: inherit; font-family: inherit; }
+
+.card { border-radius: 12px; box-shadow: 0 8px 24px rgba(2,6,23,0.12); height: 100%; transition: box-shadow 0.28s ease; }
+
+.card:hover {
+  /* Don't move the element (prevents layout jumps). Use shadow to give hover feedback. */
+  transform: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-header { padding: 1rem 1.5rem; }
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.btn { border-radius: 10px !important; padding: 0.5rem 1.25rem; font-weight: 600; min-width: 120px; }
+
+#start-scan {
+  display: block;
+  margin: 0 auto;
+}
+
+#stop-scan {
+  display: block;
+  margin: 0.5rem auto 0 auto; /* center and add small top gap */
+  min-width: 140px;
+}
+
+.btn-primary {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #ac1d2c !important;
+  border-color: #ac1d2c !important;
+}
+
+.btn-success {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  color: white !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+  background-color: #5a6268 !important; 
+  border-color: #5a6268 !important;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active {
+  background-color: #ac1d2c !important;
+  border-color: #ac1d2c !important;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+#scanner-container { position: relative; margin: 0 auto; border: 2px solid rgba(0,0,0,0.08); box-shadow: 0 8px 20px rgba(2,6,23,0.12); }
+
+.form-control { border-radius: 8px; padding: 0.5rem 1rem; }
+
+.alert {
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.alert-info {
+  background-color: #e2e3e5;
+  color: #383d41;
+  border-color: #d6d8db;
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  #scanner-container {
+    max-width: 100% !important;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}

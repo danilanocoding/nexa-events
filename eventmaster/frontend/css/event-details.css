@@ -1,0 +1,194 @@
+/* inherit global theme */
+body { color: inherit; font-family: inherit; }
+.event-details-card { border-radius: 12px; margin-bottom: 2rem; overflow: hidden; box-shadow: 0 8px 24px rgba(2,6,23,0.12); }
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between; /* left actions and delete on right */
+  width: 100%;
+}
+
+.btn {
+  border-radius: 50px !important;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  min-width: 180px;
+  width: auto;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: transparent !important;
+  border: 2px solid #dc3545 !important;
+  color: #dc3545 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+  color: #dc3545 !important;
+  box-shadow: none !important;
+}
+
+.btn-success {
+  /* Use Bootstrap-like green for success state so published buttons look correct */
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  color: white !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+  background-color: #218838 !important;
+  border-color: #1e7e34 !important;
+  color: white !important;
+}
+
+.btn-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white !important;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active {
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
+  color: white !important;
+}
+
+.form-check-input:checked {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.form-check-input {
+  background-color: #adb5bd;
+  border-color: #adb5bd;
+  cursor: pointer;
+}
+
+.form-switch .form-check-input {
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.form-check-label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center !important;
+  gap: 15px;
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.modal-footer .btn {
+  min-width: 120px;
+  margin: 0;
+}
+
+/* Small inline copy button next to registration link */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px; /* match input height */
+  padding: 0 12px; /* allow room for icon + text */
+  border-radius: 6px !important; /* override .btn's 50px */
+  border: 2px solid var(--kontur-accent);
+  background: transparent;
+  color: var(--kontur-accent);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+  white-space: nowrap;
+}
+
+.copy-btn:hover,
+.copy-btn:focus {
+  background-color: rgba(181,44,44,0.08);
+  box-shadow: 0 6px 14px rgba(181,44,44,0.06);
+}
+
+/* Make input-group aligned with square buttons */
+.input-group .form-control {
+  /* input is on the left; round left corners */
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group .copy-btn {
+  /* button is on the right; round right corners */
+  border-top-right-radius: 6px !important;
+  border-bottom-right-radius: 6px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .input-group .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Publish button: uses btn-success when published, btn-secondary when not */
+#publishBtn {
+  min-width: 220px;
+}

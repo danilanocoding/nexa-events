@@ -1,0 +1,155 @@
+body {
+  background-color: #ffffff;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background-color: #f3e9dd;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+#eventTitle {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#eventDateTime,
+#eventLocation,
+#eventDescription {
+  color: #34495e;
+  line-height: 1.6;
+}
+
+/* Force dark text in registration form and ensure inputs use dark text */
+#registrationForm, #registrationForm * {
+  color: #111 !important;
+}
+
+#registrationForm .form-control {
+  color: #111 !important;
+}
+
+#registrationForm {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #b52c2ce6;
+  box-shadow: 0 0 0 0.2rem rgba(181, 44, 44, 0.25);
+}
+
+.input-group-text {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.btn {
+  border-radius: 50px !important;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #8a1f1fe6 !important;
+  border-color: #8a1f1fe6 !important;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(181, 44, 44, 0.5) !important;
+}
+
+.btn-primary {
+  background-color: #b52c2ce6 !important;
+}
+
+.btn-primary:hover {
+  background-color: #9a2525e6 !important;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+#registrationForm .btn-primary {
+  padding: 0.65rem 1.3rem;
+  font-size: 1rem;
+  width: auto;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+footer {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bi-github {
+  transition: transform 0.3s ease;
+}
+
+.bi-github:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .card-body, #registrationForm {
+    padding: 1.25rem;
+  }
+  
+  .btn-lg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body, #registrationForm {
+    padding: 1rem;
+  }
+  
+  #eventTitle {
+    font-size: 1.3rem;
+  }
+  
+  .form-control {
+    padding: 0.375rem 0.75rem;
+  }
+}

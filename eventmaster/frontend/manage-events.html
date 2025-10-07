@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Управление мероприятиями</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style1.css" rel="stylesheet">
+  <link href="css/manage-events.css" rel="stylesheet">
+  <link href="css/kontur-restore.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container">
+        <a class="navbar-brand text-light" href="index.html">Контур.Ивент</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h1 class="mb-4 text-center">Все мероприятия</h1>
+
+    <div class="mb-4 d-flex justify-content-center">
+      <div class="input-group search-box" style="max-width: 600px; width: 100%;">
+        <input type="text" id="searchEvents" class="form-control rounded-pill ps-3" placeholder="Поиск по названию мероприятия" aria-label="Поиск мероприятий">
+      </div>
+    </div>
+
+    <div id="eventsList" class="row row-cols-1 row-cols-md-2 g-4"></div>
+  </main>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Удалить мероприятие</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Вы уверены, что хотите удалить это мероприятие? Это действие необратимо.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button class="btn btn-danger" id="confirmDeleteBtn">Удалить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <footer class="bg-dark py-3 mt-auto">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+  <span class="text-light fw-semibold">Nexa</span>
+        <a href="https://github.com/desper1do/nexa-eventmaster" target="_blank" class="text-light fs-4">
+            <i class="bi bi-github"></i>
+        </a>
+        </div>
+    </div>
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/manage-events.js"></script>
+</body>
+</html>
