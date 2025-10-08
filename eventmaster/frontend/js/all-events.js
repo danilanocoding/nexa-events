@@ -2,14 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchEvents');
     let allEvents = [];
 
-    // Загрузка всех мероприятий
     fetch('http://localhost:5000/api/events/published')
         .then(response => response.json())
         .then(events => {
             allEvents = events;
             displayEvents(events);
 
-            // Добавляем обработчик поиска
             searchInput.addEventListener('input', function(e) {
                 const searchTerm = e.target.value.toLowerCase();
                 const filteredEvents = allEvents.filter(event => 
@@ -51,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
             eventsListContainer.appendChild(eventCard);
         });
 
-        // Добавляем обработчики для кнопок регистрации
         document.querySelectorAll('.register-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const eventCode = this.dataset.eventCode;

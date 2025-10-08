@@ -40,7 +40,6 @@ body {
   line-height: 1.6;
 }
 
-/* Force dark text in registration form and ensure inputs use dark text */
 #registrationForm, #registrationForm * {
   color: #111 !important;
 }

@@ -16,7 +16,6 @@ def export_participants(event_code):
 
     wb = openpyxl.Workbook()
 
-    # Prepare three sheets: All, Present, Absent
     ws_all = wb.active
     ws_all.title = "Все участники"
     ws_present = wb.create_sheet(title="Пришли")
@@ -24,7 +23,6 @@ def export_participants(event_code):
 
     headers = ["№", "ФИО", "Академическая группа", "Статус"]
 
-    # Helper to append rows and compute max widths
     def fill_sheet(ws, rows):
         ws.append(headers)
         max_lens = [len(h) for h in headers]
@@ -34,7 +32,6 @@ def export_participants(event_code):
                 l = len(str(val)) if val is not None else 0
                 if l > max_lens[i]:
                     max_lens[i] = l
-        # set widths with some caps
         for i, ml in enumerate(max_lens, start=1):
             col = ws.cell(row=1, column=i).column_letter
             if i == 1:

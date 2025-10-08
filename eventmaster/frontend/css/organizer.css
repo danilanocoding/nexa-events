@@ -1,12 +1,9 @@
-/* page uses global theme from style1.css */
 body { color: inherit; font-family: inherit; }
 
-/* Ensure main page content uses dark text on light panels (override global dark theme) */
 main, .main-content, #auth-container, #organizer-panel {
   color: #111 !important;
 }
   
-  /* header uses global theme */
   
   .navbar {
     padding: 1rem 0;
@@ -16,7 +13,7 @@ main, .main-content, #auth-container, #organizer-panel {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff; /* light panel */
+    background-color: #fff; 
     border-radius: 10px;
     box-shadow: 0 8px 24px rgba(2,6,23,0.18);
     color: #111;
@@ -56,7 +53,6 @@ main, .main-content, #auth-container, #organizer-panel {
     color: white !important;
   }
   
-  /* footer inherits global theme */
   
   .main-content {
     text-align: center;
@@ -121,7 +117,6 @@ main, .main-content, #auth-container, #organizer-panel {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-  /* Only animate shadow to avoid layout shifts */
   transition: box-shadow 0.3s ease;
   will-change: box-shadow;
     position: relative;
@@ -131,7 +126,6 @@ main, .main-content, #auth-container, #organizer-panel {
   }
   
   .event-card:hover {
-    /* Remove translate to avoid jump; increase shadow for emphasis */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   }
   

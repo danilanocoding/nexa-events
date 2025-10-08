@@ -1,4 +1,3 @@
-/* inherit global theme */
 body { color: inherit; font-family: inherit; }
 .event-details-card { border-radius: 12px; margin-bottom: 2rem; overflow: hidden; box-shadow: 0 8px 24px rgba(2,6,23,0.12); }
 
@@ -7,7 +6,7 @@ body { color: inherit; font-family: inherit; }
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
-  justify-content: space-between; /* left actions and delete on right */
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -40,7 +39,6 @@ body { color: inherit; font-family: inherit; }
 }
 
 .btn-success {
-  /* Use Bootstrap-like green for success state so published buttons look correct */
   background-color: #28a745 !important;
   border-color: #28a745 !important;
   color: white !important;
@@ -105,14 +103,13 @@ body { color: inherit; font-family: inherit; }
   margin: 0;
 }
 
-/* Small inline copy button next to registration link */
 .copy-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 44px; /* match input height */
-  padding: 0 12px; /* allow room for icon + text */
-  border-radius: 6px !important; /* override .btn's 50px */
+  height: 44px; 
+  padding: 0 12px; 
+  border-radius: 6px !important;
   border: 2px solid var(--kontur-accent);
   background: transparent;
   color: var(--kontur-accent);
@@ -128,9 +125,7 @@ body { color: inherit; font-family: inherit; }
   box-shadow: 0 6px 14px rgba(181,44,44,0.06);
 }
 
-/* Make input-group aligned with square buttons */
 .input-group .form-control {
-  /* input is on the left; round left corners */
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   border-top-right-radius: 0;
@@ -138,7 +133,6 @@ body { color: inherit; font-family: inherit; }
 }
 
 .input-group .copy-btn {
-  /* button is on the right; round right corners */
   border-top-right-radius: 6px !important;
   border-bottom-right-radius: 6px !important;
   border-top-left-radius: 0 !important;
@@ -188,7 +182,6 @@ body { color: inherit; font-family: inherit; }
   }
 }
 
-/* Publish button: uses btn-success when published, btn-secondary when not */
 #publishBtn {
   min-width: 220px;
 }

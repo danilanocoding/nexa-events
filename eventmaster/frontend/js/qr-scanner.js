@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     let scannerActive = false;
     let lastScannedCode = null;
-    let lastScanTime = 0; // timestamp of last handled scan
+    let lastScanTime = 0;
     const eventId = sessionStorage.getItem('currentEventId');
 
     if (!eventId) {
@@ -27,17 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    // Start scanning automatically and keep running
     startBtn.style.display = 'none';
     stopBtn.style.display = 'block';
     stopBtn.addEventListener('click', stopScanning);
-    // Allow start button to restart scanning after user stops
     startBtn.addEventListener('click', () => {
-        // hide start, show stop while attempting to start
         startBtn.style.display = 'none';
         stopBtn.style.display = 'block';
         startScanning().catch(() => {
-            // on error, revert buttons
             startBtn.style.display = 'block';
             stopBtn.style.display = 'none';
         });
@@ -84,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
             video.srcObject = stream;
             await video.play();
 
-            // keep buttons visible as stop control only
             startBtn.style.display = 'none';
             stopBtn.style.display = 'block';
             scannerActive = true;
@@ -120,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (code) {
                 const now = Date.now();
-                // suppress repeated scans of same code within 2.5s
                 if (code.data !== lastScannedCode || (now - lastScanTime) > 2500) {
                     lastScannedCode = code.data;
                     lastScanTime = now;
@@ -164,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'ok') {
-                    // Backend returns a friendly message for both new and already-marked cases
                     const message = data.message || 'Отметка произведена';
                     showManualResult(message, 'success');
                     loadParticipants();
@@ -215,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showError(message) {
-        // display error only in manual result area to avoid duplicate alerts
         manualCodeResult.innerHTML = `<div class="alert alert-danger">${message}</div>`;
         manualCodeResult.style.display = 'block';
         setTimeout(() => { manualCodeResult.style.display = 'none'; }, 3000);

@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let allEvents = [];
     const token = localStorage.getItem('token');
 
-    // Inline alert helper (non-blocking)
     function showInlineAlert(message, type = 'danger', timeout = 0) {
-        // remove existing
         const existing = document.getElementById('inlineAlert');
         if (existing) existing.remove();
         const container = document.querySelector('main.container');
@@ -19,26 +17,22 @@ document.addEventListener('DOMContentLoaded', function() {
         if (timeout > 0) setTimeout(() => alert.remove(), timeout);
     }
 
-    // Загрузка мероприятий: если есть токен, запрашиваем все (включая приватные/свои), иначе запрашиваем публичные опубликованные
     const fetchOptions = token ? { headers: { 'Authorization': `Bearer ${token}` } } : {};
     const endpoint = token ? 'http://localhost:5000/api/events/all' : 'http://localhost:5000/api/events/published';
     fetch(endpoint, fetchOptions)
     .then(response => {
         if (!response.ok) {
-            // don't use alert() here — show inline message
             throw new Error(`Ошибка сервера: ${response.status} ${response.statusText}`);
         }
         return response.json();
     })
     .then(events => {
-        // Если мы запрашивали публичные события (без токена), пометим их как опубликованные для корректного отображения кнопок
         if (!token) {
             events = events.map(e => ({ ...e, published: true }));
         }
         allEvents = events;
         displayEvents(events);
 
-        // Добавляем обработчик поиска
         searchInput.addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             const filteredEvents = allEvents.filter(event => 
@@ -88,23 +82,18 @@ document.addEventListener('DOMContentLoaded', function() {
             eventsListContainer.appendChild(eventCard);
         });
 
-        // Добавляем обработчики для кнопок
         addEventHandlers();
     }
 
     function addEventHandlers() {
-        // Обработчик для просмотра мероприятия
         document.querySelectorAll('.view-btn').forEach(button => {
             button.addEventListener('click', function() {
                     const eventCode = this.dataset.eventCode;
-                    // store selected event in sessionStorage so event-details page uses it
                     try { sessionStorage.setItem('currentEventId', eventCode); } catch (e) { /* ignore */ }
-                    // navigate to event details (include param for robustness)
                     window.location.href = `event-details.html?event=${encodeURIComponent(eventCode)}`;
                 });
         });
 
-        // Обработчик для публикации/снятия с публикации
         document.querySelectorAll('.publish-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const eventCode = this.dataset.eventCode;
@@ -113,11 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Обработчик для удаления — показываем модальное окно и ждем подтверждения
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const eventCode = this.dataset.eventCode;
-                // store the code for confirm handler
                 const deleteModalEl = document.getElementById('deleteModal');
                 deleteModalEl.dataset.eventCode = eventCode;
                 const deleteModal = new bootstrap.Modal(deleteModalEl);
@@ -177,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             if (data.status === 'ok') {
-                // Удаляем событие из локального списка и обновляем UI без перезагрузки
                 allEvents = allEvents.filter(e => e.event_code !== eventCode);
                 displayEvents(allEvents);
                 showInlineAlert('Мероприятие успешно удалено.', 'success', 3000);
@@ -202,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }).replace(',', ' в');
     }
 
-    // Confirm delete button handler (inside same scope so deleteEvent is available)
     const confirmBtn = document.getElementById('confirmDeleteBtn');
     if (confirmBtn) {
         confirmBtn.addEventListener('click', function() {

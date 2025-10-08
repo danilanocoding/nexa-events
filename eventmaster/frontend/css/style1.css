@@ -7,11 +7,10 @@ body {
     margin: 0;
     padding: 0;
   }
-  /* Theme variables: inspired by index hero (Контур) */
   :root{
-    --kontur-bg-0: #0b1220; /* deep dark */
-    --kontur-accent: #b52c2c; /* main accent (red) */
-    --kontur-accent-2: #f3e9dd; /* warm card background */
+    --kontur-bg-0: #0b1220;
+    --kontur-accent: #b52c2c; 
+    --kontur-accent-2: #f3e9dd; 
     --kontur-muted: #6c757d;
     --kontur-white: #ffffff;
     --kontur-border: rgba(0,0,0,0.06);
@@ -19,7 +18,6 @@ body {
     --kontur-box-shadow: 0 6px 20px rgba(11,17,32,0.12);
   }
 
-  /* Global reset + typography */
   body {
     background: linear-gradient(180deg, #0f1724 0%, #0b1220 100%);
     color: var(--kontur-white);
@@ -28,7 +26,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Navbar */
   header {
     background: linear-gradient(90deg, rgba(11,17,32,1) 0%, rgba(16,20,28,0.95) 100%) !important;
     border-bottom: 1px solid rgba(255,255,255,0.03);
@@ -49,7 +46,6 @@ body {
     color: rgba(255,255,255,0.9) !important;
   }
 
-  /* Footer */
   footer {
     background: linear-gradient(90deg, rgba(7,10,15,1) 0%, rgba(9,12,18,1) 100%) !important;
     color: rgba(255,255,255,0.85) !important;
@@ -64,7 +60,6 @@ body {
 
   footer a:hover { opacity: 0.85; }
 
-  /* Buttons - neutral baseline */
   .btn {
     border-radius: 10px !important;
     padding: 0.55rem 1rem;
@@ -94,7 +89,7 @@ body {
   }
 
   .btn-success {
-    background-color: #28a745 !important; /* green for success */
+    background-color: #28a745 !important; 
     border-color: #218838 !important;
     color: white !important;
   }
@@ -105,7 +100,6 @@ body {
     color: white !important;
   }
 
-  /* Cards and panels */
   .card, .event-details-card {
     background: linear-gradient(180deg, var(--kontur-accent-2), #f7efe4) !important;
     color: #192027 !important;
@@ -114,7 +108,6 @@ body {
     border: 1px solid var(--kontur-border) !important;
   }
 
-  /* Inputs and form controls */
   .form-control {
     border-radius: 8px !important;
     border: 1px solid rgba(0,0,0,0.08) !important;
@@ -124,17 +117,14 @@ body {
 
   .form-label { color: #222 !important; }
 
-  /* Modals */
   .modal-content {
     background: linear-gradient(180deg,#fff,#fbf7f2) !important;
     border-radius: 10px !important;
     color: #111 !important;
   }
 
-  /* Headings */
   h1, h2, h3, h4 { color: #0d1b26 !important; }
 
-  /* Utility tweaks */
   a { color: var(--kontur-accent) !important; }
   a:hover { opacity: 0.85; }
 

@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Получаем элементы форм
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
     const showRegisterLink = document.getElementById('showRegister');
     const showLoginLink = document.getElementById('showLogin');
     const organizerPanel = document.getElementById('organizer-panel');
 
-    // Проверяем авторизацию
     checkAuth();
 
-    // Обработчики переключения между формами
     showRegisterLink.addEventListener('click', function(e) {
         e.preventDefault();
         loginForm.classList.remove('active');
@@ -22,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loginForm.classList.add('active');
     });
 
-    // Обработка формы входа
     document.getElementById('loginForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const email = document.getElementById('loginEmail').value;
@@ -51,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Обработка формы регистрации
     document.getElementById('registerForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const name = document.getElementById('regName').value;
@@ -68,9 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
                 if (data.status === 'ok') {
-                    // Show styled in-page success message and switch to login form
                     showMessage('Регистрация успешна! Теперь вы можете войти.', 'success');
-                    // after a short delay switch to login so user sees the message
                     setTimeout(() => showLoginLink.click(), 800);
                 } else {
                     alert(data.message || 'Ошибка регистрации');
@@ -82,9 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-        // Helper: show a styled in-page alert inside #auth-container
         function showMessage(message, type = 'success') {
-            // remove existing alert if any
             const existing = document.getElementById('auth-alert');
             if (existing) existing.remove();
             const alert = document.createElement('div');
@@ -94,9 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert.style.fontWeight = '600';
             alert.textContent = message;
             const container = document.getElementById('auth-container');
-            // insert at top so it is immediately visible
             container.insertBefore(alert, container.firstChild);
-            // auto-remove after 4s
             setTimeout(() => {
                 if (alert.parentNode) alert.remove();
             }, 4000);

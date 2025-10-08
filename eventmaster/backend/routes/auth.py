@@ -33,15 +33,12 @@ def token_required(f):
 def register():
     data = request.get_json()
     
-    # Проверяем наличие обязательных полей
     if not all(k in data for k in ['name', 'email', 'password']):
         return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
     
-    # Проверяем, не существует ли уже такой email
     if Organizer.query.filter_by(email=data['email']).first():
         return jsonify({'status': 'error', 'message': 'Email already registered'}), 400
     
-    # Создаем нового организатора
     organizer = Organizer(name=data['name'], email=data['email'])
     organizer.set_password(data['password'])
     

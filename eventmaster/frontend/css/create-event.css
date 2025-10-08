@@ -1,7 +1,5 @@
-/* inherit global theme */
 body { color: inherit; font-family: inherit; }
 
-/* Force readable text color for main content on create-event page */
 .event-form-container, .event-form-container * {
   color: #111 !important;
 }
@@ -15,22 +13,19 @@ body { color: inherit; font-family: inherit; }
     border: 1px solid #dee2e6;
   }
 
-  /* required star next to labels: no gap between label text and star */
   label .text-danger {
-    margin-left: 0; /* remove gap so '*' sits immediately after the label */
+    margin-left: 0; 
     padding-left: 0;
     color: #dc3545 !important;
-    line-height: 1; /* keep vertically aligned */
+    line-height: 1; 
     font-size: 1em;
   }
 
-  /* date/time inputs layout */
   .event-form-container input[type="date"],
   .event-form-container input[type="time"] {
     max-width: 220px;
   }
 
-  /* description counter when at limit */
   #descCounter.limit-reached {
     color: #dc3545 !important;
     font-weight: 600;

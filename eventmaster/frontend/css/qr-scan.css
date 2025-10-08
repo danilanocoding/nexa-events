@@ -1,10 +1,8 @@
-/* inherit global theme */
 body { color: inherit; font-family: inherit; }
 
 .card { border-radius: 12px; box-shadow: 0 8px 24px rgba(2,6,23,0.12); height: 100%; transition: box-shadow 0.28s ease; }
 
 .card:hover {
-  /* Don't move the element (prevents layout jumps). Use shadow to give hover feedback. */
   transform: none;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
@@ -24,7 +22,7 @@ body { color: inherit; font-family: inherit; }
 
 #stop-scan {
   display: block;
-  margin: 0.5rem auto 0 auto; /* center and add small top gap */
+  margin: 0.5rem auto 0 auto; 
   min-width: 140px;
 }
 

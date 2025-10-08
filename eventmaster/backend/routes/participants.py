@@ -21,10 +21,8 @@ def register():
     if not event:
         return jsonify({'status': 'error', 'message': 'Invalid event code'}), 400
 
-    # Генерация уникального шестизначного кода
     code = generate_code()
 
-    # New schema: Participant stores full_name and group
     participant = Participant(
         full_name=data.get('full_name'),
         group=data.get('group'),
@@ -35,7 +33,6 @@ def register():
     db.session.add(participant)
     db.session.commit()
 
-    # Генерация QR-кода
     qr = qrcode.make(code)
     buffer = BytesIO()
     qr.save(buffer, format="PNG")

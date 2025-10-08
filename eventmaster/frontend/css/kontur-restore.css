@@ -1,4 +1,3 @@
-/* Global overrides to restore Kontur visual motif across pages */
 :root{
   --kontur-bg: linear-gradient(180deg,#0f1724 0%,#0b1220 100%);
   --kontur-accent: #b52c2c;
@@ -12,32 +11,25 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Make sure main regions are above any background layers */
 header, main, footer, .container, .hero-content{position:relative; z-index:3}
 
-/* Text defaults */
 h1,h2,h3,h4,h5,h6,p,span,label,li,a,button{color:var(--kontur-white) !important}
 a{color:var(--kontur-white) !important; text-decoration:none}
 
-/* Buttons: pill look consistent */
 .btn{border-radius:50px !important; padding:10px 22px; font-weight:600; box-shadow:0 8px 20px rgba(0,0,0,0.45)}
 .btn-outline-primary{border-color:var(--kontur-white) !important; color:var(--kontur-white) !important}
 .btn-primary{background:var(--kontur-accent) !important; border-color:var(--kontur-accent) !important; color:#fff !important}
 .btn-secondary{background:rgba(255,255,255,0.06) !important; color:#fff !important}
 
-/* Forms and inputs: dark inputs with light text */
 .form-control{background:rgba(255,255,255,0.03) !important; color:var(--kontur-white) !important; border:1px solid rgba(255,255,255,0.06) !important}
 .form-control::placeholder{color:rgba(255,255,255,0.6) !important}
 .form-label{color:rgba(255,255,255,0.95) !important}
 
-/* Modals: dark and readable */
 .modal-content{background:linear-gradient(180deg, rgba(16,16,16,0.98), rgba(26,26,26,0.98)) !important; color:var(--kontur-white) !important}
 .modal-header, .modal-footer{border:none !important}
 
-/* Cards: subtle dark panels if present */
 .card, .event-details-card{background:rgba(255,255,255,0.03) !important; color:var(--kontur-white) !important; border-radius:12px; border:1px solid rgba(255,255,255,0.04)}
 
-/* Utility */
 .text-muted, .small{color:rgba(255,255,255,0.8) !important}
 
 @media (max-width:768px){

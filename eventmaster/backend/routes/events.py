@@ -88,7 +88,6 @@ def get_published_events():
 @events_bp.route('/events/all', methods=['GET'])
 @token_required
 def get_all_events(current_organizer):
-    # Return events owned by this organizer OR events with no organizer (legacy/unassigned)
     events = Event.query.filter((Event.organizer_id == current_organizer.id) | (Event.organizer_id == None)).all()
     result = sorted(events, key=lambda e: e.event_date)
 
