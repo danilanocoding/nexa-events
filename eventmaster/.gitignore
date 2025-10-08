@@ -1,4 +1,21 @@
-﻿# Bytecode and caches
+﻿# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# SQLite database (optional - already in repo if needed)
+*.db
+
+# Editor and OS files
+.vscode/
+.DS_Store
+
+# Environment files
+.env
+# Bytecode and caches
 __pycache__/
 *.py[cod]
 
